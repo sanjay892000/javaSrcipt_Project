@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="todo-list">
+        <form class="todo-form">
+            <div class="heading">
+                <h1>Welcome to ToDo List</h1>
+            </div>
+            <label for="list">Your Task:</label><br>
+            <input type="text" id="todolist" placeholder="Enter task"><br>
+            <label for="desc">Description:</label><br>
+            <textarea name="description" id="desc" cols="70" rows="4" placeholder="Enter task Description"></textarea><br>
+            <button class="addList">Add List</button>
+        </form><br>
+        <table border="1" class="list-container" width="950px">
+            <thead>
+                <tr style="height: 60px; font-size: 25px;">
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="list-body" align="center">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

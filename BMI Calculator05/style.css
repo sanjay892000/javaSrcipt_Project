@@ -1,0 +1,31 @@
+.main-page {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#height,
+#weight {
+    height: 25px;
+    width: 350px;
+    margin: 10px;
+    padding: 5px 10px;
+    outline: none;
+}
+.btn-primary{
+    height: 50px;
+    width: 120px;
+    padding: 5px 10px;
+    color: white;
+    background-color: rgb(20, 20, 49);
+    margin: 20px 0px;
+}
