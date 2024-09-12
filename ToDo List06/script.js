@@ -15,11 +15,7 @@ form.addEventListener('submit', function (event) {
     let taskVal = document.createTextNode(task.value)
     let descVal = document.createTextNode(desc.value)
     let button = document.createElement('button');
-    button.style.height="40px"
-    button.style.width="80px"
     button.setAttribute('class','delete');
-    button.style.color="white"
-    button.style.backgroundColor="red"
     let action = document.createTextNode("Delete")
     button.appendChild(action)
     td1.appendChild(taskVal);
@@ -36,10 +32,15 @@ form.addEventListener('submit', function (event) {
     }
     task.value = null;
     desc.value = null;
+    deleteFun()
 })
 
-setInterval=()=>{
-    let deleteList = document.querySelectorAll('#list-body')
-    console.log(deleteList)
-
+function deleteFun(){
+    let deleteBtn = document.querySelectorAll('.delete')
+    deleteBtn.forEach((value)=>{
+value.addEventListener('click',(e)=>{
+   let element = value.parentElement.parentElement;
+   element.remove()
+})
+    })
 }
