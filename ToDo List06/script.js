@@ -3,44 +3,43 @@ let form = document.querySelector('.todo-form');
 form.addEventListener('submit', function (event) {
     event.preventDefault();
     let task = document.querySelector('#todolist');
-    let desc = document.querySelector('#desc');
-    let listBody = document.querySelector('#list-body');
-    let tr = document.createElement('tr');
-    tr.style.height="60px"
-    tr.style.fontSize="22px"
-    let td1 = document.createElement('td');
-    let td2 = document.createElement('td');
-    let td3 = document.createElement('td');
-    tr.style.alignItems="center"
-    let taskVal = document.createTextNode(task.value)
-    let descVal = document.createTextNode(desc.value)
-    let button = document.createElement('button');
-    button.setAttribute('class','delete');
-    let action = document.createTextNode("Delete")
-    button.appendChild(action)
-    td1.appendChild(taskVal);
-    td2.appendChild(descVal);
-    td3.appendChild(button);
-    tr.appendChild(td1)
-    tr.appendChild(td2)
-    tr.appendChild(td3)
-    if(task.value && desc.value){
-        listBody.appendChild(tr)
-    }
-    else{
-        alert("please enter Both Value")
-    }
-    task.value = null;
-    desc.value = null;
-    deleteFun()
+    let data = task.value;
+    let div = document.createElement('div');
+    let id = Math.floor(Math.random()*100000000000)+100000000000;
+    div.setAttribute('class','list-items')
+    div.innerHTML=`
+    <div class="check-items">
+    <input type="checkbox" id=${id}>
+    <label for=${id} onclick="complete(this)">${data}</label>
+    </div>
+    <i class="fa-solid fa-xmark" onclick="deleteFun(this)"></i>`;
+    let container = document.querySelector('.list-container');
+    container.appendChild(div)
 })
 
-function deleteFun(){
-    let deleteBtn = document.querySelectorAll('.delete')
-    deleteBtn.forEach((value)=>{
-value.addEventListener('click',(e)=>{
-   let element = value.parentElement.parentElement;
-   element.remove()
-})
-    })
+function deleteFun(task) {
+    let element = task.parentElement;
+    element.remove()
+  
 }
+
+function complete(task){
+    let check = task.parentElement.children[0]
+    task.style.textDecoration="line-through"
+    task.style.color="gray"
+    check.setAttribute('disabled',"")
+}
+
+
+
+/* function deleteFun() {
+    console.log("i am clidfg");
+    
+    let deleteBtn = document.querySelectorAll('.fa-solid')
+    deleteBtn.forEach((value) => {
+        value.addEventListener('click', (e) => {
+            let element = value.parentElement;
+            element.remove()
+        })
+    })
+} */
