@@ -64,11 +64,30 @@ section {
     height: 100%;
     background-color: rgb(43, 56, 68);
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
     padding: 0px 10px;
-    cursor: pointer;
+    position: relative;
 }
+.subfilter{
+    display: flex;
+    cursor: pointer;
+    width: 100%;
+    justify-content: space-between;
+}
+.filterlist{
+    position: absolute;
+    top: 105%;
+    left: 0;
+    background-color: inherit;
+    width: 100%;
+    padding: 5px 10px;
+}
+.filterlist li{
+    list-style-type: none;
+}
+
 
 .container {
     display: flex;

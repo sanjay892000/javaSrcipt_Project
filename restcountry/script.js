@@ -5,15 +5,16 @@ let fetchFun = async () => {
     let data = await response.json()
     data.forEach(element => {
         country.push(element)
-        displayCountry(element)
     });
+    displayCountry(data)
    } catch (error) {
     console.log(error)
    }
 }
 document.body.addEventListener('onload', fetchFun())
 let container = document.querySelector('.container');
-function displayCountry(value) {
+function displayCountry(countryData) {
+       countryData.map((value)=>{
         let div = document.createElement('div');
         div.setAttribute('class','card');
         div.innerHTML = `<div><img src=${value.flags.png} alt="loading..."></div>
@@ -22,6 +23,7 @@ function displayCountry(value) {
         <p>Region: <span>${value.region}</span></p>
         <p>Capital: <span>${value.capital}</span></p>`
          container.appendChild(div)
+       });
 }
 
 document.querySelector('.inputdata').addEventListener('input', (e) => {
@@ -32,8 +34,6 @@ document.querySelector('.inputdata').addEventListener('input', (e) => {
     }
     console.log(search)
     document.querySelector('.container').innerHTML = " "
-    search.forEach((val)=>{
-        displayCountry(val)
-    })
+    displayCountry(search)
 });
 
