@@ -6,18 +6,37 @@
     line-height: 1.5;
 }
 
-body {
-    background-color: rgb(32, 44, 54);
-    color: white;
+.dark {
+    --backgroundColor: rgb(32, 44, 54);
+    --headerColor: rgb(43, 56, 68);
+    --textColor: white;
+}
+.light {
+    --backgroundColor: rgb(232, 241, 240);
+    --headerColor: rgb(240, 245, 244);
+    --textColor: rgb(0, 0, 0);
+}
+body{
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+}
+.toparrow{
+    position: fixed;
+    bottom: 5%;
+    right: 5px;
+    height: 50px;
+    transform: rotate(-90deg);
 }
 
 header {
     height: 70px;
-    background-color: rgb(43, 56, 68);
+    width: 100%;
+    background-color: var(--headerColor);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 25px;
+    color: var(--textColor);
 }
 
 header div {
@@ -43,7 +62,7 @@ section {
 .input {
     height: 40px;
     width: 300px;
-    background-color: rgb(43, 56, 68);
+    background-color:var(--headerColor);
     display: flex;
     align-items: center;
     padding: 5px 15px;
@@ -55,14 +74,14 @@ section {
     outline: none;
     margin-left: 8px;
     font-size: 18px;
-    color: white;
+    color: var(--textColor);
     width: 100%;
 }
 
 .filter {
     width: 150px;
     height: 100%;
-    background-color: rgb(43, 56, 68);
+    background-color: var(--headerColor);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,17 +94,24 @@ section {
     cursor: pointer;
     width: 100%;
     justify-content: space-between;
+    
 }
 .filterlist{
+    display: none;
     position: absolute;
-    top: 105%;
+    top: 100%;
     left: 0;
     background-color: inherit;
     width: 100%;
-    padding: 5px 10px;
 }
 .filterlist li{
     list-style-type: none;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.filterlist li:hover{
+    background-color:var(--headerColor);
 }
 
 
