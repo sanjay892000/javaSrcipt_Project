@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rest-Country-App</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="light">
+<body class="dark">
     <img class="toparrow" src="./toparrow.png" alt="loading...">
     <header>
-        <h1>Where in the world?</h1>
+        <h1>myWorld?</h1>
         <div class="modeChanger"><i class="changemode"><i class="fa-regular fa-moon"></i>Night Mode</i></div>
     </header>
-    <section>
+    <section class="main-section">
         <div class="input">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input class="inputdata" type="search" placeholder="search country">
@@ -41,6 +41,59 @@
     <div class="container">
 
     </div>
+
+    <!-- get more info -->
+    <section class="flag-more-info hidden">
+        <p class="return">Back</p>
+        <section class="flag-info-content">
+            <img src="" alt="State Flag" class="more-info-image" />
+            <div class="info">
+                <div class="grid-infos">
+                    <h1 class="region-name">india</h1>
+                    <p class="native-name info-name">
+                        Native Name:
+                        <span class="nativeName"></span>
+                    </p>
+                    <p class="population info-name">
+                        Population:
+                        <span class="populationNumber"></span>
+                    </p>
+                    <p class="region info-name">
+                        Region:
+                        <span class="regionName"></span>
+                    </p>
+                    <p class="info-name">
+                        Sub Region:
+                        <span class="subRegion"></span>
+                    </p>
+                    <p class="capital info-name">
+                        Capital:
+                        <span class="capitalName"></span>
+                    </p>
+                    <p class="domain info-name">
+                        Top Level Domain:
+                        <span class="levelDomain"></span>
+                    </p>
+                    <p class="currencie info-name">
+                        Currencies:
+                        <span class="currencies"></span>
+                    </p>
+                    <p class="language info-name">
+                        Languages:
+                        <span class="languagues"></span>
+                    </p>
+                </div>
+                <section class="border-countries">
+                    <p class="countriesTitle">Border Countries:</p>
+                    <ul class="countriesList"></ul>
+                </section>
+            </div>
+        </section>
+    </section>
+    <section id="pagination">
+        <button id="prev">Prev</button>
+        <button id="next">Next</button>
+    </section>
 
     <script src="./script.js"></script>
 </body>
