@@ -6,12 +6,21 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #carousel{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carouselbox{
     height: 400px;
     width: 70%;
-    margin: 50px auto;
-    border: 1px solid gray;
     position: relative;
     overflow: hidden;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel-items{
@@ -34,9 +43,16 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
 }
 .carousel-control{
-    margin: auto;
-    width: 30%;
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    position: absolute;
+    padding: 0px 20px;
+}
+
+
+.carousel-control > button{
+    font-size: 25px;
+    padding:5px;
 }
