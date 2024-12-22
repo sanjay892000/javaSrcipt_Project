@@ -1,0 +1,84 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./morning.avif');
+    background-size: cover;
+    object-position:center;
+}
+.degitalclock{
+    text-align: center;
+}
+.degitalclock >h1{
+    margin-bottom: 50px;
+    font-size: 50px;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: rgba(128, 0, 128, 0.582);
+    text-shadow: 1px 1px 1px black;
+}
+
+.clock{
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
+.clockbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.timetext{
+    height: 80px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(102, 0, 255, 0.566);
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+}
+.time{
+    width: 100px;
+    padding: 10px;
+    font-size: 16px;
+    background-color:rgba(6, 2, 111, 0.804);
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+#ampm{
+    background-color: green;
+}
+
+@media screen and (max-width:600px) {
+    .degitalclock >h1{
+        font-size: 35px;
+    }
+    .clock{
+        gap: 10px;
+    }
+    .timetext{
+        height: 60px;
+        width: 70px;
+        font-size: 30px;
+        font-weight: 500;
+    }
+    .time{
+        width: 70px;
+        padding:10px 5px;
+        font-size: 14px;
+    }
+
+}
