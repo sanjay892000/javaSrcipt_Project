@@ -33,14 +33,11 @@ const addElement = (imageSource, imageUrl) => {
     newDiv.className = 'search-result';
     newDiv.innerHTML = `<img
     src=${imageSource}
-    alt="image"
-    />
-    <a
-    href=${imageUrl}
+    alt="image"/>
+    <a href=${imageUrl}
     target="_blank"
-    rel="noopener noreferrer"
-    >an image of a beach</a
-    >`
+    rel="noopener noreferrer">
+    an image of a beach</a>`
     imageBox.appendChild(newDiv)
 }
 
