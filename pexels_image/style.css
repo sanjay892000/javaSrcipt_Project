@@ -26,9 +26,9 @@ form {
     padding: 10px 20px;
     border: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
     font-size: 18px;
     color: #333;
+    outline: none;
 }
 
 #search-button {
@@ -39,8 +39,10 @@ form {
     font-size: 18px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     transition: background-color 0.3s ease-in-out;
+    position: relative;
+    right: 15px;
 }
 
 #search-button:hover {

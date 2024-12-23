@@ -1,10 +1,14 @@
 let imageBox = document.querySelector('.pexels-images')
 let searchBtn = document.querySelector('#search-btn');
+let inputData = ''
+
 let page = 1
-const apiKeys = 'zGzmASEGcD6yroabMezk3PSnIFFaQK9kdxnRaTZ7VfHVxSZ0ORFqZ8EP'
+const apiKeys = 'zGzmASEGcD6yroabMezk3PSnIFFaQK9kdxnRaTZ7VfHVxSZ0ORFqZ8EP';
+
+
 //fetch image data
-const fetchPexelsData = async (search) => {
-    const response = await fetch(`https://api.pexels.com/v1/search?query=${search}&page=${page}`, {
+const fetchPexelsData = async () => {
+    const response = await fetch(`https://api.pexels.com/v1/search?query=${inputData}&page=${page}`, {
         headers: {
             Authorization: apiKeys
         }
@@ -14,29 +18,15 @@ const fetchPexelsData = async (search) => {
     allPhotos.forEach(photo => {
         addElement(photo.src.large, photo.url)
     })
-    if (page <= 0) {
-        seeMore.style.display = 'none'
-    }
-    else {
+    if (page > 0 && !allPhotos) {
         seeMore.style.display = 'block'
     }
-
-    /* if (allPhotos.length > 0) {
-        allPhotos.forEach(photo => {
-            addElement(photo.src.large, photo.url)
-        })
-        if (page <= 0) {
-            seeMore.style.display = 'none'
-        }
-        else {
-            seeMore.style.display = 'block'
-        }
-    }
     else {
-        let massage = document.createTextNode('No results found');
-        imageBox.appendChild(massage)
-    } */
+        seeMore.style.display = 'none'
+    }
 }
+
+
 //add image data to the list of photos elements
 const addElement = (imageSource, imageUrl) => {
     const newDiv = document.createElement('div');
@@ -58,16 +48,15 @@ const addElement = (imageSource, imageUrl) => {
 searchBtn.addEventListener('submit', (e) => {
     e.preventDefault();
     page++
-    let inputData = document.querySelector('#search-input').value;
+    inputData = document.querySelector('#search-input').value;
     imageBox.innerHTML = '';
     console.log(inputData)
-    fetchPexelsData(inputData)
+    fetchPexelsData()
 })
 let seeMore = document.querySelector('#show-more-button')
 
 seeMore.addEventListener('click', () => {
     page++
-    let inputData = document.querySelector('#search-input').value;
-    fetchPexelsData(inputData)
+    fetchPexelsData()
 })
 
