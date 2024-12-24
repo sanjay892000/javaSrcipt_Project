@@ -7,7 +7,7 @@ let form = document.querySelector('#myform');
 scoreTag.innerHTML = score;
 const questionFun = () =>{
     
-let valueA = Math.floor(Math.random() * 10 + 1);
+let valueA = Math.floor(Math.random() * 20 + 1);
 let valueB = Math.floor(Math.random() * 10 + 1);
 
 //operation value
