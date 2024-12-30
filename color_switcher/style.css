@@ -1,0 +1,34 @@
+*{
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.main-page {
+    height: 100vh;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.btnbox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 25px 0px;
+    gap: 5px;
+
+}
+.btnbox>button {
+    padding:15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 22px;
+    text-shadow: 1px 1px 3px rgba(255,255,255);
+}
+

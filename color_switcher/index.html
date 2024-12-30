@@ -4,60 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .main-page {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-
-        }
-
-        .item1 {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            background-color: #812727;
-            border-radius: 50%;
-        }
-
-        
-        .item2 {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            background-color: #078707;
-            border-radius: 50%;
-        }
-        
-        .item3 {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            background-color: #eee200;
-            border-radius: 50%;
-        }
-        .item4 {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            background-color: #07085a;
-            border-radius: 50%;
-        }
-    </style>
+    <title>color-switcher</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <main class="main-page">
-        <div id="red" class="item1 box"></div>
-        <div id="green" class="item2 box"></div>
-        <div id="yellow" class="item3 box"></div>
-        <div id="blue" class="item4 box"></div>
+      <div class="btnbox">
+        <button value="red" style="background-color: red;">red</button>
+        <button value="yellow" style="background-color: yellow;">yellow</button>
+        <button value="green" style="background-color: green;">green</button>
+        <button value="orange" style="background-color: orange;">orange</button>
+        <button value="purple" style="background-color: purple;">purple</button>
+        <button value="pink" style="background-color: pink;">pink</button>
+        <button value="teal" style="background-color: teal;">teal</button>
+        <button value="blue" style="background-color: blue;">blue</button>
+        <button value="gold" style="background-color: gold;">gold</button>
+        <button value="crimson" style="background-color: crimson;">crimson</button>
+      </div>
     </main>
     <script src="./script.js"></script>
 </body>

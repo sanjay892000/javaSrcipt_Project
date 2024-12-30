@@ -1,12 +1,8 @@
-let box = document.getElementsByClassName("box");
 let body = document.querySelector('body');
-let data = document.querySelectorAll('.box')
-console.log(box);
-console.log(data);
+let btn = document.querySelectorAll('.btnbox>button');
 
-data.forEach((element)=>{
-   console.log(element)
+btn.forEach((element)=>{
  element.addEventListener('click',(e)=>{
-    body.style.backgroundColor=e.target.id;
+    body.style.backgroundColor=e.target.value;
  })
 })
