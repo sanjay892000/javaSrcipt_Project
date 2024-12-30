@@ -30,3 +30,6 @@ function genCol() {
     div.style.backgroundColor = `#${genColor}`;
     para.innerHTML = `Color: #${genColor}`
 }
+
+window.addEventListener("load", genCol);
+
