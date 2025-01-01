@@ -39,6 +39,7 @@ let songimg = document.querySelector('#songimg');
 const playSongfun = () => {
     audioTag.src = './music/chand_taro_main.mp3'
     document.body.appendChild(audioTag);
+    console.log(audioTag)
     musicDuration.innerHTML = '00:00';
     musicTime.innerHTML = '00:00';
     songProgress.value = 0;
@@ -59,9 +60,10 @@ playbtn.addEventListener('click', (e) => {
             songProgress.value = audioTag.currentTime
             musicTime.innerHTML = `${Math.floor(audioTag.currentTime / 60).toString().padStart(2, '0')}:${Math.floor(audioTag.currentTime % 60).toString().padStart(2, '0')}`;
             if (audioTag.ended) {
-                e.target.classList.remove('fa-pause')
-                e.target.classList.add('fa-play')
-                audioTag.currentTime = 0
+                e.target.classList.remove('fa-pause');
+                e.target.classList.add('fa-play');
+                songimg.classList.remove('songimage');
+                audioTag.currentTime = 0;
             }
         }, 1000);
     }
