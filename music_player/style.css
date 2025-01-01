@@ -9,10 +9,20 @@
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 25px;
 }
 
+#music-player>h1{
+    text-align: center;
+    font-size: 35px;
+    text-transform: capitalize;
+    color: transparent;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 1px 1px 2px black;
+}
 .musicbox {
     height: auto;
     width: 40%;
@@ -108,5 +118,9 @@
     }
     #songtime {
         width: 100%;
+    }
+    #music-player>h1{
+        text-align: center;
+        font-size: 25px;
     }
 }
