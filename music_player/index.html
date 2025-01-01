@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>musicPlayer-app</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section id="music-player">
+        <div class="musicbox">
+            <p>dost milte hai bichhadane ke li...</p>
+            <img id="songimg" src="./image/vishnurnair.jpg" alt="loading...">
+            <div class="song-progress">
+               <span id="music-time">00:00</span><input id="songtime" type="range"><span id="duration">00:00</span>
+            </div>
+            <div class="tools">
+                <i class="fa-solid fa-backward-fast"></i>
+                <i class="fa-solid fa-stop" id="stopbtn"></i>
+                <i class="fa-solid fa-play" id="playbtn"></i>
+                <!-- <i class="fa-solid fa-pause"></i> -->
+                <i class="fa-solid fa-forward-fast"></i>
+            </div>
+        </div>
+    </section>
+   
+
+    <script src="./script.js"></script>
+</body>
+</html>
