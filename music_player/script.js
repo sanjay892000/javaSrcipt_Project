@@ -37,7 +37,7 @@ let musicTime = document.querySelector('#music-time');
 let audioTag = document.createElement('audio');
 let songimg = document.querySelector('#songimg');
 const playSongfun = () => {
-    audioTag.src = './music/bestmusic.MP3'
+    audioTag.src = './music/chand_taro_main.mp3'
     document.body.appendChild(audioTag);
     musicDuration.innerHTML = '00:00';
     musicTime.innerHTML = '00:00';

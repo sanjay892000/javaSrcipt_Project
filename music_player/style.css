@@ -18,12 +18,12 @@
     width: 40%;
     max-width: 500px;
     min-width: 350px;
+    padding: 50px;
     background-color: rgb(239, 239, 239);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px;
     box-shadow: 1px 1px 10px black;
     border-radius: 5px;
 }
@@ -93,4 +93,20 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+@media screen and (max-width: 580px) {
+    .musicbox {
+        width: 80%;
+        min-width: 280px;
+        padding:50px 25px;
+    }
+    .musicbox img {
+        width: 130px;
+        height: 130px;
+        margin: 25px auto;
+    }
+    #songtime {
+        width: 100%;
+    }
 }
