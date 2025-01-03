@@ -52,8 +52,9 @@ header div {
     font-size: 18px;
 }
 
-.changemode i {
-    margin-right: 5px;
+.changemode>span{
+    margin-left: 5px;
+    font-style: italic;
 }
 
 
@@ -72,11 +73,12 @@ header div {
     width: 300px;
     background-color:var(--headerColor);
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     padding: 5px 15px;
 }
 
-.input input {
+.input>input {
     background-color: inherit;
     border: none;
     outline: none;
@@ -145,15 +147,43 @@ header div {
     }
 }
 @media screen and (max-width: 640px) {
+    header>h1{
+        font-size: 18px;
+    }
     .card {
         width: 45%;
         max-width: 45%;
+    }
+    .changemode > span{
+        display: none;
+    }
+    .changemode > i{
+        font-size: 30px;
+    }
+    .main-section{
+        align-items: flex-start;
+        flex-direction: column;
+        position: relative;
+        margin-bottom: 100px;
+    }
+    
+    .input {
+        width: 75%;
+    }
+    .filter{
+        position: absolute;
+        right: 15px;
+        top:65px;
+
     }
 }
 @media screen and (max-width: 440px) {
     .card {
         width: 70%;
         max-width: 70%;
+    }
+    .input {
+        width:80%;
     }
 }
 
