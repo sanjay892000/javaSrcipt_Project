@@ -19,13 +19,21 @@
 body{
     background-color: var(--backgroundColor);
     color: var(--textColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    width: 100%;
+   max-width: 1300px;
 }
 .toparrow{
     position: fixed;
     bottom: 5%;
-    right: 5px;
-    height: 50px;
+    right: 10px;
+    height: 35px;
     transform: rotate(-90deg);
+    cursor: pointer;
 }
 
 header {

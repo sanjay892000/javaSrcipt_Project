@@ -12,38 +12,39 @@
 </head>
 
 <body class="dark">
-    <img class="toparrow" src="./toparrow.png" alt="loading...">
-    <header>
-        <h1>myWorld?</h1>
-        <div class="modeChanger"><i class="changemode"><i class="fa-regular fa-moon"></i>Night Mode</i></div>
-    </header>
-    <section class="main-section">
-        <div class="input">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input class="inputdata" type="search" placeholder="search country">
-        </div>
-        <div class="filter">
-            <div class="subfilter">
-                <p> Filter by Region</p>
-                <i class="fa-solid fa-sort-down"></i>
+    <main>
+        <img class="toparrow" src="./toparrow.png" alt="loading...">
+        <header>
+            <h1>myWorld?</h1>
+            <div class="modeChanger"><i class="changemode"><i class="fa-regular fa-moon"></i>Night Mode</i></div>
+        </header>
+        <section class="main-section">
+            <div class="input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="inputdata" type="search" placeholder="search country">
             </div>
-            <ul class="filterlist">
-                <li onclick="displayCountry(country)">All</li>
-                <li class="region">Africa</li>
-                <li class="region">Americas</li>
-                <li class="region">Antarctic</li>
-                <li class="region">Asia</li>
-                <li class="region">Europe</li>
-                <li class="region">Oceania</li>
-            </ul>
+            <div class="filter">
+                <div class="subfilter">
+                    <p> Filter by Region</p>
+                    <i class="fa-solid fa-sort-down"></i>
+                </div>
+                <ul class="filterlist">
+                    <li onclick="displayCountry(country)">All</li>
+                    <li class="region">Africa</li>
+                    <li class="region">Americas</li>
+                    <li class="region">Antarctic</li>
+                    <li class="region">Asia</li>
+                    <li class="region">Europe</li>
+                    <li class="region">Oceania</li>
+                </ul>
+            </div>
+        </section>
+        <div class="container">
+
         </div>
-    </section>
-    <div class="container">
 
-    </div>
-
-    <!-- get more info -->
-    <section class="flag-more-info hidden">
+        <!-- get more info -->
+        <!--  <section class="flag-more-info hidden">
         <p class="return">Back</p>
         <section class="flag-info-content">
             <img src="" alt="State Flag" class="more-info-image" />
@@ -89,12 +90,14 @@
                 </section>
             </div>
         </section>
-    </section>
-    <section id="pagination">
-        <button id="prev">Prev</button>
-        <button id="next">Next</button>
-    </section>
+    </section> -->
+        <section id="pagination">
+            <button id="prev">Prev</button>
+            <button id="next">Next</button>
+        </section>
+    </main>
 
     <script src="./script.js"></script>
 </body>
+
 </html>
