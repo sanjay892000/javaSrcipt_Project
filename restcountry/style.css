@@ -189,6 +189,12 @@ header div {
         width:80%;
     }
 }
+@media screen and (max-width: 340px) {
+    .card {
+        width: 90%;
+        max-width: 90%;
+    }
+}
 
 .card div {
     width: 100%;
