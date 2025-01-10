@@ -141,7 +141,7 @@ let regionList = document.querySelectorAll('.region');
 
 regionList.forEach((list) => {
     list.addEventListener('click', (e) => {
-        page=1;
+        page = 1;
         filterFun(e.target.innerHTML)
         if (filterlist.style.display == "block") {
             filterlist.style.display = "none";
@@ -155,7 +155,7 @@ regionList.forEach((list) => {
 let allCountry = document.querySelector('.allCountry');
 
 allCountry.addEventListener('click', () => {
-    page=1;
+    page = 1;
     fechfun()
     if (filterlist.style.display == "block") {
         filterlist.style.display = "none";

@@ -11,23 +11,27 @@
     --headerColor: rgb(43, 56, 68);
     --textColor: white;
 }
+
 .light {
     --backgroundColor: rgb(232, 241, 240);
     --headerColor: rgb(240, 245, 244);
     --textColor: rgb(0, 0, 0);
 }
-body{
+
+body {
     background-color: var(--backgroundColor);
     color: var(--textColor);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-main{
+
+main {
     width: 100%;
-   max-width: 1300px;
+    max-width: 1300px;
 }
-.toparrow{
+
+.toparrow {
     position: fixed;
     bottom: 5%;
     right: 10px;
@@ -52,13 +56,13 @@ header div {
     font-size: 18px;
 }
 
-.changemode>span{
+.changemode>span {
     margin-left: 5px;
     font-style: italic;
 }
 
 
-.main-section{
+.main-section {
     margin: 25px;
     height: 50px;
     display: flex;
@@ -71,7 +75,7 @@ header div {
 .input {
     height: 40px;
     width: 300px;
-    background-color:var(--headerColor);
+    background-color: var(--headerColor);
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -99,17 +103,20 @@ header div {
     padding: 0px 10px;
     position: relative;
 }
-.subfilter{
+
+.subfilter {
     display: flex;
     cursor: pointer;
     width: 100%;
     justify-content: space-between;
-    
+
 }
-.fa-sort-down{
+
+.fa-sort-down {
     transform: rotate(90deg);
 }
-.filterlist{
+
+.filterlist {
     display: none;
     position: absolute;
     top: 100%;
@@ -117,14 +124,15 @@ header div {
     background-color: inherit;
     width: 100%;
 }
-.filterlist li{
+
+.filterlist li {
     list-style-type: none;
     padding: 5px 15px;
     cursor: pointer;
 }
 
-.filterlist li:hover{
-    background-color:var(--headerColor);
+.filterlist li:hover {
+    background-color: var(--headerColor);
 }
 
 
@@ -149,46 +157,55 @@ header div {
         max-width: 31%;
     }
 }
+
 @media screen and (max-width: 640px) {
-    header>h1{
+    header>h1 {
         font-size: 18px;
     }
+
     .card {
         width: 45%;
         max-width: 45%;
     }
-    .changemode > span{
+
+    .changemode>span {
         display: none;
     }
-    .changemode > i{
+
+    .changemode>i {
         font-size: 30px;
     }
-    .main-section{
+
+    .main-section {
         align-items: flex-start;
         flex-direction: column;
         position: relative;
         margin-bottom: 100px;
     }
-    
+
     .input {
         width: 75%;
     }
-    .filter{
+
+    .filter {
         position: absolute;
         right: 15px;
-        top:65px;
+        top: 65px;
 
     }
 }
+
 @media screen and (max-width: 440px) {
     .card {
         width: 70%;
         max-width: 70%;
     }
+
     .input {
-        width:80%;
+        width: 80%;
     }
 }
+
 @media screen and (max-width: 340px) {
     .card {
         width: 90%;
@@ -222,7 +239,7 @@ header div {
 
 /* css for info */
 
-.return{
+.return {
     position: relative;
     font-size: 22px;
     text-align: center;
@@ -235,15 +252,17 @@ header div {
     border-radius: 5px;
     cursor: pointer;
 }
-.return:hover{
+
+.return:hover {
     background-color: var(--headerColor);
 }
-.flag-more-info{
+
+.flag-more-info {
     height: 100vh;
     width: 100%;
 }
 
-.flag-info-content{
+.flag-info-content {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -252,30 +271,33 @@ header div {
     gap: 50px;
 }
 
-.info{
+.info {
     display: flex;
     gap: 100px;
 }
-.grid-infos{
-}
-.region-name{
+
+.grid-infos {}
+
+.region-name {
     font-size: 40px;
     margin-bottom: 20px;
 }
-.grid-infos p{
+
+.grid-infos p {
     line-height: 2;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-#pagination{
+#pagination {
     display: flex;
     justify-content: space-between;
     padding: 20px 100px;
 }
-#pagination button{
+
+#pagination button {
     background-color: orange;
     border-radius: 5px;
     border: none;
@@ -283,7 +305,8 @@ header div {
     font-weight: 600;
     cursor: pointer;
     padding: 8px 20px;
-    &:hover{
+
+    &:hover {
         background-color: darkorange;
     }
 }
