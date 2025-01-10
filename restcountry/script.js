@@ -77,7 +77,6 @@ const displayCountryFun = (country) => {
 
 let toparrow = document.querySelector(".toparrow");
 toparrow.addEventListener("click", (e) => {
-    console.log(window);
     window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -104,13 +103,11 @@ let prevBtn = document.querySelector("#prev");
 
 nextBtn.addEventListener("click", (e) => {
     totalPage = Math.ceil(myCountry.length / pageItems);
-    console.log(totalPage);
     if (page >= totalPage) {
         nextBtn.disabled = true;
         return;
     }
     page++;
-    console.log(page);
     displayCountryFun(myCountry);
     prevBtn.disabled = false;
 });
@@ -122,7 +119,6 @@ if (page <= 1) {
 prevBtn.addEventListener("click", (e) => {
     if (page > 1) {
         page--;
-        console.log(page);
         displayCountryFun(myCountry);
         nextBtn.disabled = false;
     }
