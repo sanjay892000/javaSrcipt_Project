@@ -155,11 +155,11 @@ regionList.forEach((list) => {
 let allCountry = document.querySelector('.allcountry');
 
 allCountry.addEventListener('click', () => {
-    page = 1;
     fechfun()
     if (filterlist.style.display == "block") {
         filterlist.style.display = "none";
         icons.style.transform = "rotate(90deg)";
     }
+    page = 1;
     inputdata.value = "";
 })
