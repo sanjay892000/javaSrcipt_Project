@@ -152,7 +152,7 @@ regionList.forEach((list) => {
 })
 
 
-let allCountry = document.querySelector('.allCountry');
+let allCountry = document.querySelector('.allcountry');
 
 allCountry.addEventListener('click', () => {
     page = 1;
