@@ -1,131 +1,165 @@
-let country = [];
-let currentPage = 1;
-let itemsPerPage = 16;
-
-let prevBtn = document.querySelector('#prev');
-let nextBtn = document.querySelector('#next');
-
-prevBtn.addEventListener('click',()=>{
-    console.log("prev btn")
-    if(currentPage>1){
-        currentPage--
-        fetchFun()
-       
+let subfilter = document.querySelector(".subfilter");
+let filterlist = document.querySelector(".filterlist");
+let icons = document.querySelector(".fa-sort-down");
+subfilter.addEventListener("click", (e) => {
+    //   filterlist.style.display = filterlist.style.display == "block" ? "none" : "block";
+    if (filterlist.style.display == "block") {
+        filterlist.style.display = "none";
+        icons.style.transform = "rotate(90deg)";
+    } else {
+        filterlist.style.display = "block";
+        icons.style.transform = "rotate(0deg)";
     }
+});
 
-})
-nextBtn.addEventListener('click',()=>{
-    console.log("next btn")
-    currentPage++
-    fetchFun()
-})
+//toggle mode switcher
 
-// Fetch all countries data
-let fetchFun = async () => {
-    try {
-        let response = await fetch("https://restcountries.com/v3.1/all");
-        let data = await response.json();
-        country = data;
-        displayCountry(data, currentPage);
-    } catch (error) {
-        console.log(error);
+let changeMode = document.querySelector(".changemode");
+changeMode.addEventListener("click", (e) => {
+    let modeText = document.querySelector(".changemode > span");
+    if (document.body.classList.contains("light")) {
+        document.body.classList.remove("light");
+        document.body.classList.add("dark");
+        modeText.innerHTML = "light mode";
+    } else {
+        document.body.classList.remove("dark");
+        document.body.classList.add("light");
+        modeText.innerHTML = "dark mode";
     }
+});
+
+//fetch data from restcountries api
+
+let container = document.querySelector(".container");
+let myCountry = [];
+let page = 1;
+let pageItems = 16;
+let totalPage;
+
+const fechfun = async () => {
+    const URLs = "https://restcountries.com/v3.1/all";
+    let response = await fetch(URLs);
+    let data = await response.json();
+    myCountry = data;
+    displayCountryFun(data);
 };
+window.addEventListener("load", fechfun);
 
-// Display countries based on pagination
-function displayCountry(countryData, page) {
-    let startIndex = (page - 1) * itemsPerPage;
-    let endIndex = page * itemsPerPage;
-    let paginatedData = countryData.slice(startIndex, endIndex);
+//show items on web page
 
-    let container = document.querySelector('.container');
+const displayCountryFun = (country) => {
+    let startIndex = (page - 1) * pageItems;
+    let endIndex = page * pageItems;
+    let newCountry = country.slice(startIndex, endIndex);
+
     container.innerHTML = "";
+    newCountry.forEach((element) => {
+        // let mycard = `<div class="card">
+        //           <div><img src=${element.flags.png} alt="loading..."></div>
+        //           <h1>${element.name.common}</h1>
+        //           <p>Population: 1410000000</span></p>
+        //           <p>Region: <span>Asia</span></p>
+        //           <p>Capital: Delhi</span></p>
+        //        </div>`   // like as text
 
-    paginatedData.forEach((value) => {
-        let div = document.createElement('div');
-        div.setAttribute('class', 'card');
-        div.innerHTML = `
-            <div><img src="${value.flags.png}" alt="loading..."></div>
-            <h1>${value.name.common}</h1>
-            <p>Population: <span>${value.population}</span></p>
-            <p>Region: <span>${value.region}</span></p>
-            <p>Capital: <span>${value.capital}</span></p>`;
-        container.appendChild(div);
+        const mycard = document.createElement("div");
+        mycard.classList.add("card");
+        mycard.innerHTML = `<div><img src="${element.flags.png}" alt="loading..."></div>
+    <h1>${element.name.common}</h1>
+    <p>Population: ${element.population}</p>
+    <p>Region: ${element.region}</p>
+    <p>Capital: ${element.capital}</p>`;
+        container.appendChild(mycard);
     });
-
-   /*  setupPagination(countryData.length); */
-}
-
-// Handle pagination buttons
-/* function setupPagination(totalItems) {
-    let totalPages = Math.ceil(totalItems / itemsPerPage);
-    let paginationContainer = document.querySelector('.pagination');
-    paginationContainer.innerHTML = "";
-
-    for (let i = 1; i <= totalPages; i++) {
-        let button = document.createElement('button');
-        button.textContent = i;
-        button.classList.add('page-btn');
-        if (i === currentPage) button.classList.add('active');
-
-        button.addEventListener('click', () => {
-            currentPage = i;
-            displayCountry(country, currentPage);
-        });
-
-        paginationContainer.appendChild(button);
-    }
-} */
-
-// Search functionality
-document.querySelector('.inputdata').addEventListener('input', (e) => {
-    let searchData = e.target.value.toLowerCase().trim();
-    let filteredData = country.filter(val =>
-        val.name.common.toLowerCase().includes(searchData)
-    );
-    currentPage = 1; // Reset to first page on new search
-    displayCountry(filteredData, currentPage);
-});
-
-// Toggle filter dropdown
-document.querySelector('.filter').addEventListener('click', () => {
-    let filter = document.querySelector('.filterlist');
-    filter.style.display = filter.style.display === "block" ? "none" : "block";
-});
-
-// Fetch countries by region
-let regionFun = async (region) => {
-    let response = await fetch(`https://restcountries.com/v3.1/region/${region}`);
-    let regionData = await response.json();
-    currentPage = 1; // Reset to first page on new region selection
-    displayCountry(regionData, currentPage);
 };
 
-// Handle region selection
-let liList = document.querySelectorAll('.region');
-liList.forEach(li => {
-    li.addEventListener('click', () => {
-        document.querySelector('.inputdata').value = "";
-        regionFun(li.textContent);
-        liList.forEach(item => item.classList.remove('active'));
-        li.classList.add('active');
-    });
-});
+//add scroll  functionality
 
-// Change theme mode
-document.querySelector('.changemode').addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    document.body.classList.toggle('light');
-});
-
-// Smooth scroll to top
-document.querySelector('.toparrow').addEventListener('click', () => {
+let toparrow = document.querySelector(".toparrow");
+toparrow.addEventListener("click", (e) => {
+    console.log(window);
     window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
     });
 });
 
-// Intialize fetch on page load
-document.addEventListener('DOMContentLoaded', fetchFun);
+// search functionality
 
+let inputdata = document.querySelector(".inputdata");
+
+inputdata.addEventListener("input", (e) => {
+    let myData = myCountry.filter((value) => {
+        return value.name.common
+            .toLowerCase()
+            .includes(e.target.value.toLowerCase());
+    });
+    displayCountryFun(myData);
+});
+
+//add next page functionality
+
+let nextBtn = document.querySelector("#next");
+let prevBtn = document.querySelector("#prev");
+
+nextBtn.addEventListener("click", (e) => {
+    totalPage = Math.ceil(myCountry.length / pageItems);
+    console.log(totalPage);
+    if (page >= totalPage) {
+        nextBtn.disabled = true;
+        return;
+    }
+    page++;
+    console.log(page);
+    displayCountryFun(myCountry);
+    prevBtn.disabled = false;
+});
+
+//add prev page functionality
+if (page <= 1) {
+    prevBtn.disabled = true;
+}
+prevBtn.addEventListener("click", (e) => {
+    if (page > 1) {
+        page--;
+        console.log(page);
+        displayCountryFun(myCountry);
+        nextBtn.disabled = false;
+    }
+});
+
+// filter functionality
+
+const filterFun = async (region) => {
+    const res = await fetch(`https://restcountries.com/v3.1/region/${region}`);
+    const data = await res.json();
+    myCountry = data;
+    displayCountryFun(data)
+};
+
+let regionList = document.querySelectorAll('.region');
+
+regionList.forEach((list) => {
+    list.addEventListener('click', (e) => {
+        page=1;
+        filterFun(e.target.innerHTML)
+        if (filterlist.style.display == "block") {
+            filterlist.style.display = "none";
+            icons.style.transform = "rotate(90deg)";
+        }
+        inputdata.value = "";
+    })
+})
+
+
+let allCountry = document.querySelector('.allCountry');
+
+allCountry.addEventListener('click', () => {
+    page=1;
+    fechfun()
+    if (filterlist.style.display == "block") {
+        filterlist.style.display = "none";
+        icons.style.transform = "rotate(90deg)";
+    }
+    inputdata.value = "";
+})

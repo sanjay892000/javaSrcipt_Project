@@ -106,6 +106,9 @@ header div {
     justify-content: space-between;
     
 }
+.fa-sort-down{
+    transform: rotate(90deg);
+}
 .filterlist{
     display: none;
     position: absolute;
