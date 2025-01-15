@@ -35,13 +35,28 @@ let myCountry = [];
 let page = 1;
 let pageItems = 16;
 let totalPage;
-
+const maintag =  document.querySelector('main');
+const loader =  document.querySelector('div.custom-loader');
+maintag.style.display = "none";
 const fechfun = async () => {
-    const URLs = "https://restcountries.com/v3.1/all";
-    let response = await fetch(URLs);
-    let data = await response.json();
-    myCountry = data;
-    displayCountryFun(data);
+    try {
+        const URLs = "https://restcountries.com/v3.1/all";
+        let response = await fetch(URLs);
+        if(response.ok){
+            let data = await response.json();
+            myCountry = data;
+            loader.style.display = "none";
+            maintag.style.display = "block";
+            displayCountryFun(data);
+        }
+        else{
+            loader.style.display = "block";
+            maintag.style.display = "none";
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
 };
 window.addEventListener("load", fechfun);
 
