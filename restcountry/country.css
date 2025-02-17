@@ -1,0 +1,81 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+.dark {
+    --backgroundColor: rgb(32, 44, 54);
+    --headerColor: rgb(43, 56, 68);
+    --textColor: white;
+}
+
+.light {
+    --backgroundColor: rgb(232, 241, 240);
+    --headerColor: rgb(240, 245, 244);
+    --textColor: rgb(0, 0, 0);
+}
+
+body {
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.custom-loader {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    top: 50px;
+    background: conic-gradient(#081a8000 10%, #0e0a4a);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+    animation: s3 1s infinite linear;
+}
+
+@keyframes s3 {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+
+main {
+    width: 100%;
+    max-width: 1300px;
+}
+
+.toparrow {
+    position: fixed;
+    bottom: 5%;
+    right: 10px;
+    height: 35px;
+    transform: rotate(-90deg);
+    cursor: pointer;
+}
+
+header {
+    height: 70px;
+    width: 100%;
+    background-color: var(--headerColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px;
+    color: var(--textColor);
+}
+
+header div {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.changemode>span {
+    margin-left: 5px;
+    font-style: italic;
+}

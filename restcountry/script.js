@@ -79,7 +79,7 @@ const displayCountryFun = (country) => {
 
         const mycard = document.createElement("div");
         mycard.classList.add("card");
-        mycard.innerHTML = `<div><img src="${element.flags.png}" alt="loading..."></div>
+        mycard.innerHTML = `<div><a href="./country.html?country=${element.name.common}"><img src="${element.flags.png}" alt="loading..."></a></div>
     <h1>${element.name.common}</h1>
     <p>Population: ${element.population}</p>
     <p>Region: ${element.region}</p>
