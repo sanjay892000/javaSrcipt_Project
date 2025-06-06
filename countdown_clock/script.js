@@ -23,7 +23,7 @@ const days = [
     "saturday"
 ]
 
-const giveawayDate = new Date(2025, 0, 14, 23, 30, 30);
+const giveawayDate = new Date(Date.now() + 401800000) ;
 let extTime = 'AM'
 let time = giveawayDate.getHours()
 if (giveawayDate.getHours() >= 12) {

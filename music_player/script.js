@@ -1,20 +1,24 @@
-/* 
-const FetchSongFun = async () => {
-    try {
-        const response = await fetch('https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl?market=IN', {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer 11dFghVXANMlKmJXsNCbNl',
-            }
+const token = "9d988e0c218e446a9502a399a98ffb36";
+const FetchSongFun = () => {
+    fetch("https://api.spotify.com/v1/search?q=arijit+singh&type=track&limit=5", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Tracks:", data.tracks.items);
+          data.tracks.items.forEach((track) => {
+            console.log("🎵", track.name);
+            console.log("▶️", track.preview_url);
+          });
         })
-        const data = await response.json()
-        console.log(data)
-    } catch (error) {
-        console.log(error)
-    }
+        .catch((err) => console.error("Error fetching from Spotify:", err));
 
 }
-FetchSongFun() */
+FetchSongFun()
 
 
 
