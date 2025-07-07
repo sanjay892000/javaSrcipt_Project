@@ -40,14 +40,14 @@ const loader =  document.querySelector('div.custom-loader');
 maintag.style.display = "none";
 const fechfun = async () => {
     try {
-        const URLs = "https://restcountries.com/v3.1/all";
+        const URLs = "https://backend-projects-bqbd.onrender.com/api.restcountry/v3/all";
         let response = await fetch(URLs);
         if(response.ok){
             let data = await response.json();
-            myCountry = data;
+            myCountry = data.results;
             loader.style.display = "none";
             maintag.style.display = "block";
-            displayCountryFun(data);
+            displayCountryFun(data.results);
         }
         else{
             loader.style.display = "block";
