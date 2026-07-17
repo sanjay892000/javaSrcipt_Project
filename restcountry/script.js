@@ -142,7 +142,7 @@ prevBtn.addEventListener("click", (e) => {
 // filter functionality
 
 const filterFun = async (region) => {
-    const res = await fetch(`https://restcountries.com/v3.1/region/${region}`);
+    const res = await fetch(`https://restapi-sot8.onrender.com/v3.1/region/${region}`);
     const data = await res.json();
     myCountry = data;
     displayCountryFun(data)
