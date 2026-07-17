@@ -47,7 +47,7 @@ body {
 
 main {
     width: 100%;
-    max-width: 1300px;
+    max-width: 1500px;
 }
 
 .toparrow {
@@ -295,7 +295,6 @@ header div {
     gap: 100px;
 }
 
-.grid-infos {}
 
 .region-name {
     font-size: 40px;

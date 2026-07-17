@@ -35,21 +35,21 @@ let myCountry = [];
 let page = 1;
 let pageItems = 16;
 let totalPage;
-const maintag =  document.querySelector('main');
-const loader =  document.querySelector('div.custom-loader');
+const maintag = document.querySelector('main');
+const loader = document.querySelector('div.custom-loader');
 maintag.style.display = "none";
 const fechfun = async () => {
     try {
         const URLs = "https://restapi-sot8.onrender.com/api.restcountry/v3/all";
         let response = await fetch(URLs);
-        if(response.ok){
+        if (response.ok) {
             let data = await response.json();
             myCountry = data.results;
             loader.style.display = "none";
             maintag.style.display = "block";
             displayCountryFun(data.results);
         }
-        else{
+        else {
             loader.style.display = "block";
             maintag.style.display = "none";
         }
@@ -79,7 +79,7 @@ const displayCountryFun = (country) => {
 
         const mycard = document.createElement("div");
         mycard.classList.add("card");
-        mycard.innerHTML = `<div><a href="./country.html?country=${element.name.common}"><img src="${element.flags.png}" alt="loading..."></a></div>
+        mycard.innerHTML = `<div><a href="./country.html?country=${element.name.common}&countryid=${element._id}"><img src="${element.flags.png}" alt="loading..."></a></div>
     <h1>${element.name.common}</h1>
     <p>Population: ${element.population}</p>
     <p>Region: ${element.region}</p>

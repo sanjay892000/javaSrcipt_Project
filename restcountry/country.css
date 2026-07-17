@@ -1,81 +1,281 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    line-height: 1.5;
 }
+
+/* THEME */
 
 .dark {
     --backgroundColor: rgb(32, 44, 54);
     --headerColor: rgb(43, 56, 68);
-    --textColor: white;
+    --textColor: #fff;
+    --shadow: rgba(0, 0, 0, 0.35);
 }
 
 .light {
-    --backgroundColor: rgb(232, 241, 240);
-    --headerColor: rgb(240, 245, 244);
-    --textColor: rgb(0, 0, 0);
+    --backgroundColor: rgb(250, 250, 250);
+    --headerColor: #fff;
+    --textColor: #111517;
+    --shadow: rgba(0, 0, 0, 0.08);
 }
 
 body {
-    background-color: var(--backgroundColor);
+    background: var(--backgroundColor);
     color: var(--textColor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    min-height: 100vh;
 }
-
-.custom-loader {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    position: relative;
-    top: 50px;
-    background: conic-gradient(#081a8000 10%, #0e0a4a);
-    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
-    animation: s3 1s infinite linear;
-}
-
-@keyframes s3 {
-    to {
-        transform: rotate(1turn)
-    }
-}
-
 
 main {
     width: 100%;
-    max-width: 1300px;
+    max-width: 1500px;
 }
 
-.toparrow {
-    position: fixed;
-    bottom: 5%;
-    right: 10px;
-    height: 35px;
-    transform: rotate(-90deg);
-    cursor: pointer;
-}
+/* HEADER */
 
 header {
-    height: 70px;
-    width: 100%;
-    background-color: var(--headerColor);
+    height: 75px;
+    background: var(--headerColor);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 25px;
-    color: var(--textColor);
+    padding: 0 50px;
+    box-shadow: 0 3px 12px var(--shadow);
 }
 
-header div {
+header h1 {
+    font-size: 28px;
+}
+
+.modeChanger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+}
+
+.modeChanger i {
     font-size: 18px;
 }
 
-.changemode>span {
-    margin-left: 5px;
-    font-style: italic;
+/* MAIN SECTION */
+
+.more-info {
+    max-width: 1300px;
+    margin: auto;
+    padding: 50px;
+}
+
+/* BACK BUTTON */
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 45px;
+    text-decoration: none;
+    color: var(--textColor);
+    background: var(--headerColor);
+    border-radius: 4px;
+    border: none;
+    transition: 0.3s;
+    margin-bottom: 70px;
+}
+
+.back:hover {
+    transform: translateY(-3px);
+}
+
+/* CONTENT */
+
+.flag-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+/* IMAGE */
+
+.more-info-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 10px 25px var(--shadow);
+}
+
+/* INFO */
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.region-name {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.grid-infos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: 15px 60px;
+}
+
+.info-name {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.info-name span {
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* BORDER COUNTRIES */
+
+.border-countries {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.countriesTitle {
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.countriesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+}
+
+.countriesList li {
+    padding: 8px 18px;
+    background: var(--headerColor);
+    border-radius: 5px;
+    box-shadow: 0 2px 8px var(--shadow);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.countriesList li:hover {
+    transform: translateY(-3px);
+}
+
+/* TABLET */
+
+@media (max-width: 992px) {
+    .more-info {
+        padding: 35px;
+    }
+
+    .flag-info {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .more-info-image {
+        height: 380px;
+    }
+
+    .grid-infos {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px 40px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    header {
+        padding: 0 20px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .modeChanger span {
+        display: none;
+    }
+
+    .modeChanger i {
+        font-size: 24px;
+    }
+
+    .more-info {
+        padding: 20px;
+    }
+
+    .back {
+        margin-bottom: 40px;
+    }
+
+    .more-info-image {
+        height: 250px;
+    }
+
+    .region-name {
+        font-size: 30px;
+    }
+
+    .grid-infos {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .border-countries {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .countriesList {
+        margin-top: 10px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+    header {
+        height: 65px;
+    }
+
+    header h1 {
+        font-size: 18px;
+    }
+
+    .back {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .more-info-image {
+        height: 200px;
+    }
+
+    .region-name {
+        font-size: 24px;
+    }
+
+    .info-name {
+        font-size: 15px;
+    }
+
+    .countriesList li {
+        font-size: 14px;
+        padding: 7px 14px;
+    }
 }
